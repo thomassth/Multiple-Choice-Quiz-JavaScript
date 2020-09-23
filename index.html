@@ -3,28 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <div id="container">
-        <div id="start">Start Quiz!</div>
+<div id="quizContainer">
+        <div id="start">Let's Begin!</div>
         <div id="quiz" style="display: none">
-            <div id="question"></div>
-            <div id="qImg"></div>
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-            </div>
-            <div id="timer">
-                <div id="counter"></div>
-                <div id="btimeGauge"></div>
-                <div id="timeGauge"></div>
-            </div>
-            <div id="progress"></div>
+          <div id="qBox">
+            <p id="qPre">
+              Over the previous 2 weeks, how often have you been bothered by...
+            </p>
+            <p id="question"></p>
+          </div>
+          <div id="qImg" style="display:none"></div>
+          <div id="choices">
+            <div
+              class="choice"
+              id="A"
+              ontouchstart=""
+              onclick="checkAnswer('A')"
+            ></div>
+            <div
+              class="choice"
+              id="B"
+              ontouchstart=""
+              onclick="checkAnswer('B')"
+            ></div>
+            <div
+              class="choice"
+              id="C"
+              ontouchstart=""
+              onclick="checkAnswer('C')"
+            ></div>
+            <div
+              class="choice"
+              id="D"
+              ontouchstart=""
+              onclick="checkAnswer('D')"
+            ></div>
+          </div>
+          <!--Timer disabled-->
+          <div id="timer" style="display:none">
+            <div id="counter"></div>
+            <div id="btimeGauge"></div>
+            <div id="timeGauge"></div>
+          </div>
+          <div id="progress"></div>
         </div>
-        <div id="scoreContainer" style="display: none"></div>
-    </div>
+        <div id="scoreContainer" style="display: none">
+          <div id="score">
+            <p>
+              Your score is
+            </p>
+            <h1 id="scoreNum">score display error</h1>
+          </div>
+          <div id="advice"></div>
+        </div>
+      </div>
     <script src="quiz.js"></script>
 </body>
 </html>
