@@ -127,27 +127,29 @@ function renderQuestion() {
         .text(q.question)
         .fadeIn(500);
     });
-  } else
+  } else {
     $("#question").fadeOut(250, function() {
       $(this)
         .text(q.question)
         .fadeIn(250);
     });
+    $("#choices").fadeIn();
+  }
 
   //question.innerHTML = "<p>" + q.question + "</p>";
 
-  $('#A').text(q.choiceA);
-  $('#B').text(q.choiceB);
-  $('#C').text(q.choiceC);
-  $('#D').text(q.choiceD);
-
+  $("#A").text(q.choiceA);
+  $("#B").text(q.choiceB);
+  $("#C").text(q.choiceC);
+  $("#D").text(q.choiceD);
 }
 
 start.addEventListener("click", startQuiz);
 
 // start quiz
 function startQuiz() {
-  start.style.display = "none";
+  $("#preQ").hide();
+  //start.style.display = "none";
   renderQuestion();
   quiz.style.display = "flex";
   renderProgress();
@@ -188,23 +190,32 @@ function renderCounter() {
 }
 
 // checkAnwer & proceed
-
+var click = 0;
 function checkAnswer(answer) {
-  switch (answer) {
-    case "A":
-      break;
-    case "B":
-      score += 1;
-      break;
-    case "C":
-      score += 2;
-      break;
-    case "D":
-      score += 3;
-      break;
-    default:
-      console.log(`checkAnswerError`);
+  $("#choices").hide();
+  //If you press too fast
+  click++;
+  console.log(click);
+  //LOGIC: if too many clicks detected, no excess clicks will be logged && directly proceed to result.
+  if (click > lastQuestion + 1) {
+    scoreRender();
   }
+  else
+    switch (answer) {
+      case "A":
+        break;
+      case "B":
+        score += 1;
+        break;
+      case "C":
+        score += 2;
+        break;
+      case "D":
+        score += 3;
+        break;
+      default:
+        console.log(`checkAnswerError`);
+    }
   answerIsCorrect();
 
   //For one correct answer only
@@ -249,8 +260,9 @@ function answerIsCorrect() {
 // score render
 function scoreRender() {
   //scoreDiv.style.display = "grid";
-  $("#quiz").slideUp();
-  $("#scoreContainer").slideToggle();
+  $("#quiz").slideUp(function() {
+    $("#scoreContainer").slideDown();
+  });
   // calculate the amount of question percent answered by the user
   //const scorePerCent = Math.round(100 * score/questions.length);
 
@@ -260,15 +272,25 @@ function scoreRender() {
   $("#scoreNum").text(score);
   //scoreDiv.innerHTML += "<p>" + score + "</p>";
   if (score >= 0 && score <= 4) {
-    $("#advice").text("Your mental health is in good shape! Keep at it :)");
+    $("#advice").html(
+      "<p>Your mental health is in good shape! Keep at it :)</p>"
+    );
   } else if (score >= 5 && score <= 9) {
-    $("#advice").text("Depression risk: Minimal");
+    $("#advice").html(
+      "<p>Depression risk: Minimal</p><p>You seems to be having some bad time. Take a look at these relaxation techniques.</p><a class='qButton' id='adviceButton' href='resilience.html'>Go</a>"
+    );
   } else if (score >= 10 && score <= 14) {
-    $("#advice").text("Depression risk: Mild");
+    $("#advice").html(
+      "<p>Depression risk: Mild</p><p>You seems to be having some bad time. Take a look at these relaxation techniques.</p><a class='qButton' id='adviceButton' href='resilience.html'>Go</a>"
+    );
   } else if (score >= 15 && score <= 19) {
-    $("#advice").text("Depression risk: Moderate");
+    $("#advice").html(
+      "<p>Depression risk: Moderate</p><p>Oh dear, it seems that you are going through some difficult times.</p><p>Here are some organisations where you can find peers and counselors, who would like to listen and share your troubles.</p><a class='qButton' id='adviceButton' href='links.html'>Go</a>"
+    );
   } else if (score >= 20 && score <= 27) {
-    $("#advice").text("Depression risk: Severe");
+    $("#advice").html(
+      "<p>Depression risk: Severe</p><p>Oh dear, it seems that you are going through some difficult times.</p><p>Here are some organisations where you can find peers and counselors, who would like to listen and share your troubles.</p><a class='qButton' id='adviceButton' href='links.html'>Go</a>"
+    );
   } else {
     console.log(`adviceProviderError`);
   }
