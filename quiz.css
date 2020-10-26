@@ -2,41 +2,38 @@ body {
   font-family: sans-serif;
   font-size: 7vw;
 }
-@media (min-width: 30em) {
+@media (min-width: 30rem) {
   body {
     font-size: x-large;
+  }
+  #quizContainer {
+    max-width: 48rem;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .choice:hover {
+    box-shadow: 0 0 0 0.2rem royalblue;
+    border-color: royalblue;
+    color: royalblue;
   }
 }
 #quizContainer {
   margin: 2rem auto;
   background-color: white;
-  min-height: 50vh;
+  min-height: 80vh;
   width: 90vw;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem 0;
   position: relative;
   display: flex;
   padding: 2rem 0;
+  flex-flow: column;
 }
-#start {
-  font-weight: bolder;
-  word-break: break-all;
-  width: 50vw;
-  padding: 2rem;
-  border: 0.2rem solid cornflowerblue;
-  text-align: center;
-  cursor: pointer;
-  color: cornflowerblue;
-  margin: auto;
-  border-radius: 0.5rem;
-  transition-duration: 0.1s;
+
+#start {  margin-top: 20%;
+
 }
-#start:hover,
-#start:active {
-  border: 3px solid lightseagreen;
-  background-color: lightseagreen;
-  color: white;
-}
+
 
 #qImg {
   width: 200px;
@@ -73,11 +70,7 @@ body {
   margin: 0.5rem 0;
   transition: 0.2s;
 }
-.choice:hover {
-  box-shadow: 0 0 0 0.2rem royalblue;
-  border-color: royalblue;
-  color: royalblue;
-}
+
 .choice:active {
   background-color: royalblue;
   border-color: royalblue;
@@ -131,18 +124,19 @@ body {
   background-color: #0f0;
   border: 0.2rem solid green;
 }
-.nowQ{
+.progRed{
+  background-color: salmon;
+border: 0.2rem solid darkred;
+}
+
+.nowQ {
   background-color: lightskyblue;
 }
 #scoreContainer {
-  position: absolute;
   background-color: white;
   opacity: 0.9;
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
   display: none;
-  top: 0;
+  padding:0 2rem
 }
 #scoreContainer img {
   top: 100px;
@@ -152,9 +146,16 @@ body {
   margin: auto;
   font-weight: bold;
   text-align: center;
-  padding: 0 3rem;
 }
 #quiz {
   flex-flow: column;
   width: 100%;
+}
+#intro {
+  padding: 2rem;
+}
+#advice{
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
 }
