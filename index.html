@@ -9,7 +9,12 @@
 </head>
 <body>
 <div id="quizContainer">
-        <div id="start">Let's Begin!</div>
+        <div id="preQ">
+          <div id="intro">
+            Answer a few questions and know more about your mental status!
+          </div>
+          <div class="qButton" id="start">Let's Begin</div>
+        </div>
         <div id="quiz" style="display: none">
           <div id="qBox">
             <p id="qPre">
@@ -44,7 +49,7 @@
               onclick="checkAnswer('D')"
             ></div>
           </div>
-          <!--Timer disabled-->
+          <!--Timer not needed-->
           <div id="timer" style="display:none">
             <div id="counter"></div>
             <div id="btimeGauge"></div>
