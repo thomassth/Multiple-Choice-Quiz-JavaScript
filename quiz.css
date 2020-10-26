@@ -159,3 +159,30 @@ border: 0.2rem solid darkred;
   display: flex;
   flex-direction: column;
 }
+
+.qButton {
+  font-weight: bolder;
+  word-break: break-word;
+  width: 50vw;
+  max-width: 36rem;
+  padding: 2rem;
+  border: 0.2rem solid DodgerBlue;
+  text-align: center;
+  cursor: pointer;
+  color: DodgerBlue;
+  margin: auto;
+  border-radius: 0.5rem;
+  transition-duration: 0.1s;
+}
+.qButton:active {
+  border: 3px solid lightseagreen;
+  background-color: lightseagreen;
+  color: white;
+}
+@media (hover: hover) and (pointer: fine) {
+  .qButton:hover {
+    border: 3px solid lightseagreen;
+    background-color: lightseagreen;
+    color: white;
+  }
+}
