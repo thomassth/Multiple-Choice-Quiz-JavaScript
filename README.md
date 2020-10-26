@@ -2,6 +2,8 @@
 
 Forked from https://github.com/CodeExplainedRepo/Multiple-Choice-Quiz-JavaScript
 
+Test it here https://thomassth.github.io/Multiple-Choice-Web/
+
 ## Improvements:
 
 1. Utilizing rem sizing for responsive web
