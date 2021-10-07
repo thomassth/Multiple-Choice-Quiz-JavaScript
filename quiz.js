@@ -195,7 +195,7 @@ function checkAnswer(answer) {
   $("#choices").hide();
   //If you press too fast
   click++;
-  console.log(click);
+  
   //LOGIC: if too many clicks detected, no excess clicks will be logged && directly proceed to result.
   if (click > lastQuestion + 1) {
     scoreRender();
@@ -214,7 +214,7 @@ function checkAnswer(answer) {
         score += 3;
         break;
       default:
-        console.log(`checkAnswerError`);
+        
     }
   answerIsCorrect();
 
@@ -292,6 +292,6 @@ function scoreRender() {
       "<p>Depression risk: Severe</p><p>Oh dear, it seems that you are going through some difficult times.</p><p>Here are some organisations where you can find peers and counselors, who would like to listen and share your troubles.</p><a class='qButton' id='adviceButton' href='links.html'>Go</a>"
     );
   } else {
-    console.log(`adviceProviderError`);
+    
   }
 }
